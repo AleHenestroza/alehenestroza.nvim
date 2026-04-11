@@ -30,6 +30,9 @@ vim.pack.add({
 
 	{ src = "https://github.com/nvim-neo-tree/neo-tree.nvim" },
 	{ src = "https://github.com/MunifTanjim/nui.nvim" },
+
+	{ src = "https://github.com/coder/claudecode.nvim" },
+	{ src = "https://github.com/folke/snacks.nvim" },
 })
 
 require("plugins.git")
@@ -40,3 +43,4 @@ require("plugins.formatting")
 require("plugins.completion")
 require("plugins.treesitter")
 require("plugins.neotree")
+require("plugins.ai")
