@@ -33,14 +33,24 @@ vim.pack.add({
 
 	{ src = "https://github.com/coder/claudecode.nvim" },
 	{ src = "https://github.com/folke/snacks.nvim" },
+
+	{ src = "https://github.com/mfussenegger/nvim-dap" },
+	{ src = "https://github.com/rcarriga/nvim-dap-ui" },
+	{ src = "https://github.com/nvim-neotest/nvim-nio" },
+	{ src = "https://github.com/jay-babu/mason-nvim-dap.nvim" },
+	{ src = "https://github.com/leoluz/nvim-dap-go" },
+
+	{ src = "https://github.com/mfussenegger/nvim-lint" },
 })
 
 require("plugins.git")
 require("plugins.ui")
 require("plugins.telescope")
 require("plugins.lsp")
+require("plugins.debug")
 require("plugins.formatting")
 require("plugins.completion")
 require("plugins.treesitter")
 require("plugins.neotree")
+require("plugins.lint")
 require("plugins.ai")

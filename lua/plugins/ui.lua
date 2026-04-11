@@ -21,7 +21,6 @@ require("tokyonight").setup({
 
 require("catppuccin").setup({
 	colorscheme = "macchiato",
-	transparent_background = true,
 	auto_integrations = true,
 })
 

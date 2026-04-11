@@ -2,7 +2,7 @@ require("claudecode").setup({})
 
 -- Grupo (solo descriptivo, útil para which-key)
 vim.keymap.set("n", "<leader>a", function() end, {
-	desc = "AI/Claude Code",
+	desc = "[A]I - Claude Code",
 })
 
 -- Base
