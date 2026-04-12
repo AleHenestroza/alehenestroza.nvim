@@ -14,6 +14,12 @@ local parsers = {
 }
 
 require("nvim-treesitter").install(parsers)
+require("nvim-treesitter.config").setup({
+	highlight = {
+		enabled = true,
+		additional_vim_regex_highlighting = false,
+	},
+})
 
 local function treesitter_try_attach(buf, language)
 	if not vim.treesitter.language.add(language) then

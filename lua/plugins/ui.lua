@@ -22,6 +22,27 @@ require("tokyonight").setup({
 require("catppuccin").setup({
 	colorscheme = "macchiato",
 	auto_integrations = true,
+	integrations = {
+		blink_cmp = {
+			style = "bordered",
+		},
+		gitsigns = true,
+		mason = true,
+		mini = {
+			enabled = true,
+			indentscope_color = "",
+		},
+		neotree = true,
+		dap = true,
+		snacks = {
+			enabled = true,
+			indentscope_color = "",
+		},
+		telescope = {
+			enabled = true,
+		},
+		which_key = true,
+	},
 })
 
 vim.cmd.colorscheme("catppuccin-macchiato")
@@ -35,6 +56,8 @@ require("mini.ai").setup({
 })
 
 require("mini.surround").setup()
+
+require("mini.statusline").setup()
 
 local statusline = require("mini.statusline")
 statusline.setup({
