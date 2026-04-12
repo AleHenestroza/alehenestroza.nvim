@@ -1,3 +1,14 @@
+require("snacks").setup({
+	terminal = {
+		win = {
+			position = "float",
+			border = "rounded",
+			height = 0.4,
+			width = 0.4,
+		},
+	},
+})
+
 require("which-key").setup({
 	delay = 0,
 	icons = {

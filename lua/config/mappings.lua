@@ -19,6 +19,12 @@ vim.diagnostic.config {
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+-- Floating terminal
+vim.keymap.set('n', '<leader>tt', function() Snacks.terminal.toggle() end, { desc = '[T]oggle [T]erminal' })
+
+-- Reload all open buffers from disk, discarding unsaved changes (useful when external tools like Claude Code edit files)
+vim.keymap.set('n', '<leader>br', '<cmd>bufdo edit!<CR>', { desc = '[B]uffers [R]eload all from disk' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
