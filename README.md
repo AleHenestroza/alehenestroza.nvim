@@ -25,7 +25,7 @@ a modular layout so it's easier to navigate and extend.
         ├── completion.lua    # blink.cmp + LuaSnip
         ├── debug.lua         # DAP + DAP UI
         ├── formatting.lua    # conform.nvim + guess-indent
-        ├── git.lua           # gitsigns
+        ├── git.lua           # gitsigns + lazygit
         ├── lint.lua          # nvim-lint
         ├── lsp.lua           # LSP config via mason + nvim-lspconfig
         ├── neotree.lua       # Neo-tree file explorer
@@ -121,6 +121,8 @@ Each plugin module is then `require`d in that same file to run its setup.
 - **[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)** — Git change
   indicators in the sign column, hunk staging/resetting, inline blame, and diff
   views.
+- **[lazygit.nvim](https://github.com/kdheepak/lazygit.nvim)** — Opens a
+  lazygit terminal UI inside Neovim. Requires `lazygit` on `$PATH`.
 
 ### AI
 
@@ -128,7 +130,7 @@ Each plugin module is then `require`d in that same file to run its setup.
   integration. Opens Claude in a terminal split, with keymaps to add
   buffers/selections as context and accept or deny diffs from within Neovim.
 - **[snacks.nvim](https://github.com/folke/snacks.nvim)** — Required by
-  claudecode.nvim.
+  claudecode.nvim. Also provides a floating terminal toggled with `<leader>tt`.
 
 ## Key Mappings
 
@@ -155,6 +157,7 @@ Each plugin module is then `require`d in that same file to run its setup.
 | `<leader>sk` | Search keymaps |
 | `<leader>sd` | Search diagnostics |
 | `<leader>sc` | Search commands |
+| `<leader>ss` | Select Telescope picker |
 | `<leader>sr` | Resume last search |
 | `<leader>s.` | Recent files |
 | `<leader>sn` | Search Neovim config files |
@@ -205,6 +208,9 @@ Each plugin module is then `require`d in that same file to run its setup.
 | `<leader>hD` | Diff against last commit |
 | `<leader>tb` | Toggle line blame |
 | `<leader>tw` | Toggle word diff |
+| `<leader>hq` | Send hunks to quickfix list |
+| `<leader>hQ` | Send all hunks to quickfix list |
+| `<leader>lg` | Open LazyGit |
 
 ### Claude Code (AI)
 
@@ -221,6 +227,12 @@ Each plugin module is then `require`d in that same file to run its setup.
 | `<leader>aa` | Accept diff |
 | `<leader>ad` | Deny diff |
 
+### Terminal
+
+| Key | Action |
+| --- | ------ |
+| `<leader>tt` | Toggle floating terminal |
+
 ### File Explorer
 
 | Key | Action |
@@ -235,3 +247,4 @@ Each plugin module is then `require`d in that same file to run its setup.
 - `make` (for LuaSnip's jsregexp on non-Windows)
 - Go + `delve` for Go debugging (or let mason install it)
 - `markdownlint` and `golangci-lint` for linting
+- [`lazygit`](https://github.com/jesseduffield/lazygit) for the LazyGit integration
