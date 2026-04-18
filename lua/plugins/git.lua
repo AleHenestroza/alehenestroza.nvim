@@ -63,3 +63,6 @@ require("gitsigns").setup({
 		map({ "o", "x" }, "ih", gitsigns.select_hunk, { desc = "git select [h]unk" })
 	end,
 })
+
+vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "[l]azy [g]it" })
+

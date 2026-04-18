@@ -1,8 +1,6 @@
 vim.pack.add({
 	{ src = "https://github.com/NMAC427/guess-indent.nvim" },
 
-	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
-
 	{ src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://github.com/folke/tokyonight.nvim" },
 	{ src = "https://github.com/catppuccin/nvim" },
@@ -14,6 +12,9 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
+
+	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
+	{ src = "https://github.com/kdheepak/lazygit.nvim" },
 
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
