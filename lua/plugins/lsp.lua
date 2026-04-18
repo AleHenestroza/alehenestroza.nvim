@@ -56,7 +56,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 local servers = vim.tbl_extend("force",
 	{ stylua = {} },
 	require("plugins.lsp.go"),
-	require("plugins.lsp.lua")
+	require("plugins.lsp.lua"),
+	require("plugins.lsp.python")
 )
 
 local ensure_installed = vim.tbl_keys(servers)
