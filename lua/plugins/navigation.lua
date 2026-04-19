@@ -1,3 +1,10 @@
+local miniharp = require("miniharp")
+
+vim.keymap.set("n", "<leader>mm", miniharp.toggle_file, { desc = "miniharp: toggle file mark" })
+vim.keymap.set("n", "<C-n>", miniharp.next, { desc = "miniharp: next file mark" })
+vim.keymap.set("n", "<C-p>", miniharp.prev, { desc = "miniharp: prev file mark" })
+vim.keymap.set("n", "<leader>ml", miniharp.show_list, { desc = "miniharp: toggle marks list" })
+
 require("telescope").setup({
 	extensions = {
 		["ui-select"] = require("telescope.themes").get_dropdown(),
