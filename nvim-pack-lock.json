@@ -4,6 +4,10 @@
       "rev": "a62e1083a3cfe8b6b206e7d3d33a51091df25357",
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
+    "alpha-nvim": {
+      "rev": "6c6a89d5b068b5251c8bdf0dd57bb921bcfeeb09",
+      "src": "https://github.com/goolord/alpha-nvim"
+    },
     "blink.cmp": {
       "rev": "456d38d1cd3743926f329204c2340f3e7840aad6",
       "src": "https://github.com/saghen/blink.cmp"
@@ -51,6 +55,10 @@
     "mini.nvim": {
       "rev": "69b7433355664cf76898eb86a12a019f39bd86d1",
       "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "miniharp.nvim": {
+      "rev": "247f17c4276429e7f571d51018f8caffa6b2cee3",
+      "src": "https://github.com/vieitesss/miniharp.nvim"
     },
     "neo-tree.nvim": {
       "rev": "b48ed11632c8208ffb27dab6acfbf16e4f9e3376",

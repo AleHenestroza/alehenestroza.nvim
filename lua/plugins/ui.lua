@@ -1,3 +1,5 @@
+require("alpha").setup(require("alpha.themes.dashboard").config)
+
 require("snacks").setup({
 	terminal = {
 		auto_close = false,
