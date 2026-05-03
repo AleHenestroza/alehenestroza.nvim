@@ -55,7 +55,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 local servers = vim.tbl_extend("force",
 	{ stylua = {} },
+	require("plugins.lsp.c"),
 	require("plugins.lsp.go"),
+	require("plugins.lsp.java"),
 	require("plugins.lsp.lua"),
 	require("plugins.lsp.python")
 )
@@ -65,7 +67,12 @@ require("mason-tool-installer").setup({
 	ensure_installed = ensure_installed,
 })
 
+-- servers managed by external plugins (e.g. nvim-jdtls) skip vim.lsp.enable
+local externally_managed = { jdtls = true }
+
 for name, server in pairs(servers) do
 	vim.lsp.config(name, server)
-	vim.lsp.enable(name)
+	if not externally_managed[name] then
+		vim.lsp.enable(name)
+	end
 end

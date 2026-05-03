@@ -21,6 +21,7 @@ vim.pack.add({
 	{ src = "https://github.com/kdheepak/lazygit.nvim" },
 
 	-- LSP
+	{ src = "https://github.com/mfussenegger/nvim-jdtls" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
 	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
@@ -67,3 +68,4 @@ require("plugins.treesitter")
 require("plugins.neotree")
 require("plugins.lint")
 require("plugins.ai")
+require("plugins.java")
