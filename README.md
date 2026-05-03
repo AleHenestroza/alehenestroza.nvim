@@ -28,10 +28,16 @@ a modular layout so it's easier to navigate and extend.
         ├── git.lua           # gitsigns + lazygit
         ├── lint.lua          # nvim-lint
         ├── lsp.lua           # LSP config via mason + nvim-lspconfig
+        ├── navigation.lua    # Telescope + miniharp keybindings
         ├── neotree.lua       # Neo-tree file explorer
-        ├── telescope.lua     # Telescope fuzzy finder
         ├── treesitter.lua    # Tree-sitter syntax/indentation
-        └── ui.lua            # Colorscheme, which-key, mini.nvim, statusline
+        ├── ui.lua            # Colorscheme, which-key, mini.nvim, alpha, statusline
+        └── lsp/
+            ├── c.lua         # clangd config
+            ├── go.lua        # gopls config
+            ├── java.lua      # jdtls config (externally managed by nvim-jdtls)
+            ├── lua.lua       # lua_ls config
+            └── python.lua    # basedpyright config
 ```
 
 ## Plugin Management
@@ -52,6 +58,8 @@ Each plugin module is then `require`d in that same file to run its setup.
   - `mini.ai` — Extended text objects (`a` and `i` motions)
   - `mini.surround` — Add/change/delete surrounding pairs
   - `mini.statusline` — Minimal statusline
+- **[alpha-nvim](https://github.com/goolord/alpha-nvim)** — Startup dashboard
+  shown when Neovim opens with no file arguments.
 - **[todo-comments.nvim](https://github.com/folke/todo-comments.nvim)** —
   Highlights `TODO`, `FIXME`, `NOTE`, etc. in comments. Signs disabled.
 - **[nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)** —
@@ -62,6 +70,9 @@ Each plugin module is then `require`d in that same file to run its setup.
 - **[Telescope](https://github.com/nvim-telescope/telescope.nvim)** — Fuzzy
   finder for files, grep, LSP symbols, keymaps, help, and more. FZF native
   sorter and UI-select extension included.
+- **[miniharp.nvim](https://github.com/iovis/miniharp.nvim)** — File mark
+  navigation. Toggle a mark on the current file, then cycle through marked files
+  or open the mark list.
 - **[Neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)** — File
   explorer sidebar. Open/reveal with `\`.
 
@@ -74,8 +85,12 @@ Each plugin module is then `require`d in that same file to run its setup.
 - **[mason-lspconfig.nvim](https://github.com/mason-org/mason-lspconfig.nvim)**
   — Bridges mason and lspconfig.
 - **[mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim)**
-  — Auto-installs tools listed in the servers table (currently `lua_ls` and
-  `stylua`).
+  — Auto-installs tools listed in the servers table (currently `gopls`,
+  `lua_ls`, `basedpyright`, `clangd`, and `stylua`).
+- **[nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)** — Java LSP via
+  Eclipse JDT Language Server. Configured in `lua/plugins/lsp/java.lua` like
+  other servers, but marked as externally managed so nvim-jdtls handles
+  attaching rather than `vim.lsp.enable`.
 - **[fidget.nvim](https://github.com/j-hui/fidget.nvim)** — LSP progress
   notifications in the corner.
 
@@ -145,6 +160,15 @@ Each plugin module is then `require`d in that same file to run its setup.
 | `<Esc><Esc>` (terminal) | Exit terminal mode |
 | `<leader>q` | Open diagnostic quickfix list |
 | `<leader>f` | Format buffer |
+
+### File Marks (miniharp)
+
+| Key | Action |
+| --- | ------ |
+| `<leader>mm` | Toggle mark on current file |
+| `<C-n>` | Next marked file |
+| `<C-p>` | Previous marked file |
+| `<leader>ml` | Open mark list |
 
 ### Search (Telescope)
 
