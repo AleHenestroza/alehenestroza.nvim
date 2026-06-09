@@ -25,13 +25,14 @@ a modular layout so it's easier to navigate and extend.
         ├── completion.lua    # blink.cmp + LuaSnip
         ├── debug.lua         # DAP + DAP UI
         ├── formatting.lua    # conform.nvim + guess-indent
-        ├── git.lua           # gitsigns + lazygit
+        ├── gamedev.lua       # Godot/GDScript support
+        ├── git.lua           # gitsigns + lazygit + diffview
         ├── lint.lua          # nvim-lint
-        ├── lsp.lua           # LSP config via mason + nvim-lspconfig
+        ├── lsp.lua           # LSP config via mason + nvim-lspconfig + nvim-ufo
         ├── navigation.lua    # Telescope + miniharp keybindings
-        ├── neotree.lua       # Neo-tree file explorer
         ├── treesitter.lua    # Tree-sitter syntax/indentation
-        ├── ui.lua            # Colorscheme, which-key, mini.nvim, alpha, statusline
+        ├── ui.lua            # Colorscheme, which-key, mini.nvim, alpha, noice, trouble
+        ├── venv.lua          # Python virtualenv selector
         └── lsp/
             ├── c.lua         # clangd config
             ├── go.lua        # gopls config
@@ -52,6 +53,9 @@ Each plugin module is then `require`d in that same file to run its setup.
 
 - **[catppuccin](https://github.com/catppuccin/nvim)** — Colorscheme, using the
   Macchiato variant. Tokyo Night is also installed but currently inactive.
+- **[noice.nvim](https://github.com/folke/noice.nvim)** — Replaces the built-in
+  UI for messages, cmdline, and popupmenu. Overrides LSP doc/signature rendering
+  and enables a command-palette preset. Requires `nui.nvim` and `nvim-notify`.
 - **[which-key.nvim](https://github.com/folke/which-key.nvim)** — Popup showing
   available keybindings as you type a prefix. Zero delay.
 - **[mini.nvim](https://github.com/nvim-mini/mini.nvim)** — Using three modules:
@@ -60,6 +64,11 @@ Each plugin module is then `require`d in that same file to run its setup.
   - `mini.statusline` — Minimal statusline
 - **[alpha-nvim](https://github.com/goolord/alpha-nvim)** — Startup dashboard
   shown when Neovim opens with no file arguments.
+- **[render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)**
+  — Renders Markdown syntax (headers, code blocks, etc.) directly in the buffer.
+- **[trouble.nvim](https://github.com/folke/trouble.nvim)** — Pretty diagnostics
+  panel. `<leader>xx` to toggle project-wide diagnostics, `<leader>xb` for the
+  current buffer.
 - **[todo-comments.nvim](https://github.com/folke/todo-comments.nvim)** —
   Highlights `TODO`, `FIXME`, `NOTE`, etc. in comments. Signs disabled.
 - **[nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)** —
@@ -70,7 +79,7 @@ Each plugin module is then `require`d in that same file to run its setup.
 - **[Telescope](https://github.com/nvim-telescope/telescope.nvim)** — Fuzzy
   finder for files, grep, LSP symbols, keymaps, help, and more. FZF native
   sorter and UI-select extension included.
-- **[miniharp.nvim](https://github.com/iovis/miniharp.nvim)** — File mark
+- **[miniharp.nvim](https://github.com/vieitesss/miniharp.nvim)** — File mark
   navigation. Toggle a mark on the current file, then cycle through marked files
   or open the mark list.
 - **[Neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)** — File
@@ -93,6 +102,14 @@ Each plugin module is then `require`d in that same file to run its setup.
   attaching rather than `vim.lsp.enable`.
 - **[fidget.nvim](https://github.com/j-hui/fidget.nvim)** — LSP progress
   notifications in the corner.
+
+### Folding
+
+- **[nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)** — Modern fold
+  provider that uses LSP/Tree-sitter ranges. Shows a virtual-text suffix with
+  the fold line count. Auto-closes import and comment folds on open.
+- **[promise-async](https://github.com/kevinhwang91/promise-async)** —
+  Async library required by nvim-ufo.
 
 ### Completion
 
@@ -138,6 +155,21 @@ Each plugin module is then `require`d in that same file to run its setup.
   views.
 - **[lazygit.nvim](https://github.com/kdheepak/lazygit.nvim)** — Opens a
   lazygit terminal UI inside Neovim. Requires `lazygit` on `$PATH`.
+- **[diffview.nvim](https://github.com/sindrets/diffview.nvim)** — Side-by-side
+  diff view and per-file git history. `<leader>gd` to open, `<leader>gf` for
+  current file history, `<leader>gc` to close.
+
+### Python
+
+- **[venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim)**
+  — Virtualenv picker integrated with Telescope. `<leader>vs` to select an
+  environment, `<leader>vc` to re-activate the last cached one.
+
+### Game Development
+
+- **[godotdev.nvim](https://github.com/Mathijs-Bakker/godotdev.nvim)** — Godot
+  engine integration: GDScript formatter and inline type hints. Tree-sitter
+  auto-setup is disabled (handled by nvim-treesitter).
 
 ### AI
 
@@ -235,6 +267,25 @@ Each plugin module is then `require`d in that same file to run its setup.
 | `<leader>hq` | Send hunks to quickfix list |
 | `<leader>hQ` | Send all hunks to quickfix list |
 | `<leader>lg` | Open LazyGit |
+| `<leader>gd` | Open diffview |
+| `<leader>gf` | Current file git history |
+| `<leader>gc` | Close diffview |
+
+### Diagnostics (trouble)
+
+| Key | Action |
+| --- | ------ |
+| `<leader>xx` | Project diagnostics panel |
+| `<leader>xb` | Buffer diagnostics panel |
+| `<leader>xq` | Quickfix list |
+| `<leader>xl` | Location list |
+
+### Python
+
+| Key | Action |
+| --- | ------ |
+| `<leader>vs` | Select virtualenv |
+| `<leader>vc` | Activate cached virtualenv |
 
 ### Claude Code (AI)
 
