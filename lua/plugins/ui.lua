@@ -1,5 +1,22 @@
 require("alpha").setup(require("alpha.themes.dashboard").config)
 
+require("noice").setup({
+	lsp = {
+		override = {
+			["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+			["vim.lsp.util.stylize_markdown"] = true,
+			["cmp.entry.get_documentation"] = true,
+		},
+	},
+	presets = {
+		bottom_search = true,
+		command_palette = true,
+		long_message_to_split = true,
+		inc_rename = false,
+		lsp_doc_border = true,
+	},
+})
+
 require("snacks").setup({
 	terminal = {
 		auto_close = false,
@@ -27,6 +44,10 @@ require("which-key").setup({
 		{ "<leader>s", group = "[S]earch", mode = { "n", "v" } },
 		{ "<leader>t", group = "[T]oggle" },
 		{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
+		{ "<leader>g", group = "[G]it" },
+		{ "<leader>x", group = "Diagnostics" },
+		{ "<leader>T", group = "[T]esting" },
+		{ "<leader>v", group = "[V]env" },
 		{ "gr", group = "LSP Actions", mode = { "n" } },
 		{ "<leader>cl", icon = "󰦕", mode = { "n" } },
 	},
@@ -63,6 +84,8 @@ require("catppuccin").setup({
 			enabled = true,
 		},
 		which_key = true,
+		trouble = true,
+		neotest = true,
 	},
 })
 
@@ -88,3 +111,34 @@ statusline.setup({
 statusline.section_location = function()
 	return "%2l:%-2v"
 end
+
+require("neo-tree").setup({
+	filesystem = {
+		window = {
+			mappings = {
+				["\\"] = "close_window",
+			},
+		},
+	},
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "neo-tree",
+	callback = function()
+		vim.wo.statuscolumn = ""
+	end,
+})
+
+vim.keymap.set("n", "\\", "<cmd>Neotree reveal<CR>", {
+	desc = "NeoTree reveal",
+	silent = true,
+})
+
+require("trouble").setup()
+
+vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics" })
+vim.keymap.set("n", "<leader>xb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics" })
+vim.keymap.set("n", "<leader>xq", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix" })
+vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist toggle<cr>", { desc = "Loclist" })
+
+require("render-markdown").setup({})

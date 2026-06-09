@@ -8,7 +8,6 @@ vim.o.tabstop = 4 -- Visible width of a tab
 vim.o.shiftwidth = 4 -- Width of an indentation
 vim.o.softtabstop = 4 -- Number of spaces a tab counts for
 vim.o.expandtab = true -- Convert tabs to spaces
-vim.o.autoindent = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = "a"
@@ -60,3 +59,19 @@ vim.o.scrolloff = 10
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
 vim.o.confirm = true
+
+-- Folding
+vim.opt.foldcolumn = "1"
+vim.opt.fillchars:append({
+	foldopen = "▾",
+	foldclose = "▸",
+	foldsep = " ",
+})
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
+-- Context menu options
+vim.cmd("amenu PopUp.Update\\ Plugins <cmd>lua vim.pack.update(nil, { force = true })<CR>")
+vim.cmd("amenu PopUp.Restart :restart<CR>")
+vim.cmd("amenu PopUp.Exit :qa<CR>")

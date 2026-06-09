@@ -24,6 +24,9 @@ return {
 						"${3rd}/busted/library",
 					},
 				},
+				diagnostics = {
+					globals = { "vim" },
+				},
 			})
 		end,
 		settings = {
@@ -31,4 +34,3 @@ return {
 		},
 	},
 }
-

@@ -4,10 +4,15 @@ vim.pack.add({
 	{ src = "https://github.com/folke/tokyonight.nvim" },
 	{ src = "https://github.com/catppuccin/nvim" },
 	{ src = "https://github.com/folke/todo-comments.nvim" },
+	{ src = "https://github.com/nvim-neo-tree/neo-tree.nvim" },
+	{ src = "https://github.com/folke/noice.nvim" },
+	{ src = "https://github.com/MunifTanjim/nui.nvim" },
+	{ src = "https://github.com/rcarriga/nvim-notify" },
 	{ src = "https://github.com/nvim-mini/mini.nvim" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
 	{ src = "https://github.com/folke/snacks.nvim" },
 	{ src = "https://github.com/goolord/alpha-nvim" },
+	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 
 	-- NAVIGATION
 	{ src = "https://github.com/vieitesss/miniharp.nvim" },
@@ -19,6 +24,7 @@ vim.pack.add({
 	-- GIT
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
 	{ src = "https://github.com/kdheepak/lazygit.nvim" },
+	{ src = "https://github.com/sindrets/diffview.nvim" },
 
 	-- LSP
 	{ src = "https://github.com/mfussenegger/nvim-jdtls" },
@@ -32,16 +38,17 @@ vim.pack.add({
 	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/NMAC427/guess-indent.nvim" },
 
+	-- FOLDING
+	{ src = "https://github.com/kevinhwang91/nvim-ufo" },
+	{ src = "https://github.com/kevinhwang91/promise-async" },
+
 	-- COMPLETION
+	{ src = "https://github.com/saghen/blink.lib" },
 	{ src = "https://github.com/saghen/blink.cmp" },
 	{ src = "https://github.com/L3MON4D3/LuaSnip" },
 
 	-- TREESITTER
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-
-	-- NEOTREE
-	{ src = "https://github.com/nvim-neo-tree/neo-tree.nvim" },
-	{ src = "https://github.com/MunifTanjim/nui.nvim" },
 
 	-- AI
 	{ src = "https://github.com/coder/claudecode.nvim" },
@@ -56,6 +63,12 @@ vim.pack.add({
 	-- LINT
 	{ src = "https://github.com/mfussenegger/nvim-lint" },
 
+	-- DIAGNOSTICS
+	{ src = "https://github.com/folke/trouble.nvim" },
+
+	-- PYTHON
+	{ src = "https://github.com/linux-cultist/venv-selector.nvim" },
+
 	-- GAMEDEV
 	{ src = "https://github.com/Mathijs-Bakker/godotdev.nvim" },
 })
@@ -68,7 +81,7 @@ require("plugins.debug")
 require("plugins.formatting")
 require("plugins.completion")
 require("plugins.treesitter")
-require("plugins.neotree")
 require("plugins.lint")
-require("plugins.gamedev")
 require("plugins.ai")
+require("plugins.venv")
+require("plugins.gamedev")

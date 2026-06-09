@@ -27,6 +27,7 @@ local function treesitter_try_attach(buf, language)
 	end
 
 	vim.treesitter.start(buf, language)
+	vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 end
 
 local available_parsers = require("nvim-treesitter").get_available()

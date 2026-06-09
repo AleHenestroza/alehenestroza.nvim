@@ -1,6 +1,16 @@
 require("mason").setup({})
 require("fidget").setup({})
 
+local capabilities = require("blink.cmp").get_lsp_capabilities()
+capabilities.textDocument.foldingRange = {
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
+}
+
+vim.lsp.config("*", {
+	capabilities = capabilities,
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 	callback = function(event)
@@ -15,7 +25,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
 		map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
 		map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-		map("grK", vim.lsp.buf.hover, "Display LSP hover")
 
 		local client = vim.lsp.get_client_by_id(event.data.client_id)
 
@@ -78,3 +87,42 @@ for name, server in pairs(servers) do
 		vim.lsp.enable(name)
 	end
 end
+
+require("ufo").setup({
+	open_fold_hl_timeout = 150,
+	close_fold_kinds_for_ft = {
+		default = { "imports", "comment" },
+		json = { "array" },
+		c = { "comment", "region" },
+	},
+	close_fold_current_line_for_ft = {
+		default = true,
+		c = false,
+	},
+	fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
+		local newVirtText = {}
+		local suffix = (" 󰁂 %d "):format(endLnum - lnum)
+		local sufWidth = vim.fn.strdisplaywidth(suffix)
+		local targetWidth = width - sufWidth
+		local curWidth = 0
+		for _, chunk in ipairs(virtText) do
+			local chunkText = chunk[1]
+			local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+			if targetWidth > curWidth + chunkWidth then
+				table.insert(newVirtText, chunk)
+			else
+				chunkText = truncate(chunkText, targetWidth - curWidth)
+				local hlGroup = chunk[2]
+				table.insert(newVirtText, { chunkText, hlGroup })
+				chunkWidth = vim.fn.strdisplaywidth(chunkText)
+				if curWidth + chunkWidth < targetWidth then
+					suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
+				end
+				break
+			end
+			curWidth = curWidth + chunkWidth
+		end
+		table.insert(newVirtText, { suffix, "MoreMsg" })
+		return newVirtText
+	end,
+})
