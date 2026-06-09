@@ -55,6 +55,9 @@ vim.pack.add({
 
 	-- LINT
 	{ src = "https://github.com/mfussenegger/nvim-lint" },
+
+	-- GAMEDEV
+	{ src = "https://github.com/Mathijs-Bakker/godotdev.nvim" },
 })
 
 require("plugins.git")
@@ -67,4 +70,5 @@ require("plugins.completion")
 require("plugins.treesitter")
 require("plugins.neotree")
 require("plugins.lint")
+require("plugins.gamedev")
 require("plugins.ai")

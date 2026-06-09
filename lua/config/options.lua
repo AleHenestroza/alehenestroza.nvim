@@ -8,6 +8,7 @@ vim.o.tabstop = 4 -- Visible width of a tab
 vim.o.shiftwidth = 4 -- Width of an indentation
 vim.o.softtabstop = 4 -- Number of spaces a tab counts for
 vim.o.expandtab = true -- Convert tabs to spaces
+vim.o.autoindent = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = "a"
