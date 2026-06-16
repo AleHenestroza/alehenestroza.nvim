@@ -19,6 +19,14 @@ require("conform").setup({
 	end,
 	formatters_by_ft = {
 		lua = { "stylua" },
+		markdown = { "markdownlint" },
+	},
+	formatters = {
+		markdownlint = {
+			command = "markdownlint",
+			args = { "--fix", "$FILENAME" },
+			stdin = false,
+		},
 	},
 })
 

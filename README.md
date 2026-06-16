@@ -323,3 +323,4 @@ Each plugin module is then `require`d in that same file to run its setup.
 - Go + `delve` for Go debugging (or let mason install it)
 - `markdownlint` and `golangci-lint` for linting
 - [`lazygit`](https://github.com/jesseduffield/lazygit) for the LazyGit integration
+
