@@ -38,10 +38,6 @@ vim.pack.add({
 	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/NMAC427/guess-indent.nvim" },
 
-	-- FOLDING
-	{ src = "https://github.com/kevinhwang91/nvim-ufo" },
-	{ src = "https://github.com/kevinhwang91/promise-async" },
-
 	-- COMPLETION
 	{ src = "https://github.com/saghen/blink.lib" },
 	{ src = "https://github.com/saghen/blink.cmp" },
