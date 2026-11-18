@@ -11,7 +11,8 @@ require("luasnip").setup({})
 
 require("blink.cmp").setup({
 	keymap = {
-		preset = "default",
+		-- <Tab> accepts (or jumps in a snippet) and falls back to a real tab when the menu is closed
+		preset = "super-tab",
 	},
 
 	appearance = {

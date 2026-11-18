@@ -101,6 +101,9 @@ require("mini.ai").setup({
 
 require("mini.surround").setup()
 
+-- Auto-close brackets/quotes; <CR> between a pair puts the closer on its own line
+require("mini.pairs").setup()
+
 require("mini.statusline").setup()
 
 local statusline = require("mini.statusline")

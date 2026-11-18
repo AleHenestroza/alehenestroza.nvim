@@ -19,6 +19,8 @@ require("conform").setup({
 	end,
 	formatters_by_ft = {
 		lua = { "stylua" },
+		-- goimports fixes imports, then gopls formats (keeps its gofumpt style)
+		go = { "goimports", lsp_format = "last" },
 		markdown = { "markdownlint" },
 	},
 	formatters = {

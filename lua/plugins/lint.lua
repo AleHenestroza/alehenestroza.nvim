@@ -3,6 +3,7 @@ local lint = require("lint")
 lint.linters_by_ft = {
 	markdown = { "markdownlint" },
 	go = { "golangcilint" },
+	kotlin = { "ktlint" },
 }
 
 local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
@@ -21,7 +22,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 	group = lint_augroup,
-	pattern = { "*.md" },
+	pattern = { "*.md", "*.kt", "*.kts" },
 	callback = function()
 		if vim.bo.modifiable then
 			lint.try_lint()

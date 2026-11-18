@@ -69,11 +69,12 @@ local servers = vim.tbl_extend(
 	require("plugins.lsp.c"),
 	require("plugins.lsp.go"),
 	require("plugins.lsp.java"),
+	require("plugins.lsp.kotlin"),
 	require("plugins.lsp.lua"),
 	require("plugins.lsp.python")
 )
 
-local ensure_installed = vim.tbl_keys(servers)
+local ensure_installed = vim.list_extend(vim.tbl_keys(servers), { "goimports", "ktlint" })
 require("mason-tool-installer").setup({
 	ensure_installed = ensure_installed,
 })

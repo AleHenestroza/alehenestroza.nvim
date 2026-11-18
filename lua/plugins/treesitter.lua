@@ -4,6 +4,7 @@ local parsers = {
 	"diff",
 	"go",
 	"html",
+	"kotlin",
 	"lua",
 	"luadoc",
 	"markdown",
